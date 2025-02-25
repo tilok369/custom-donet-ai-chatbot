@@ -1,9 +1,11 @@
+using ChatBot.Web.Services;
 using Microsoft.Extensions.AI;
 
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddChatClient(new OllamaChatClient(new Uri("http://localhost:11434"), "deepseek-r1:1.5b"));
 
+builder.Services.AddScoped<ICustomChatService, CustomChatService>();
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 

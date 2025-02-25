@@ -16,12 +16,12 @@ public class HomeController : Controller
         _serviceProvider = serviceProvider;
     }
 
-    public async Task<IActionResult> Index()
+    public IActionResult Index()
     {
-        var chatClient = _serviceProvider.GetRequiredService<IChatClient>();
-        var chatMessages = new List<ChatMessage> { new ChatMessage(ChatRole.User, "What is .NET?") };
-        var chatCompletion = await chatClient.GetResponseAsync(chatMessages);
-        ViewBag.ChatMessages = chatCompletion.Message.Text;
+        // var chatClient = _serviceProvider.GetRequiredService<IChatClient>();
+        // var chatMessages = new List<ChatMessage> { new ChatMessage(ChatRole.User, "What is .NET?") };
+        // var chatCompletion = await chatClient.GetResponseAsync(chatMessages);
+        // ViewBag.ChatMessages = chatCompletion.Message.Text;
         return View();
     }
 
