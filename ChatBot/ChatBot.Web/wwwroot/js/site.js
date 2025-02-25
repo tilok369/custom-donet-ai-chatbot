@@ -13,7 +13,7 @@ var chatService = {
             body: JSON.stringify([
                 {
                     role: 1,
-                    text: 'Tell me about Bangladesh.'
+                    text: 'Tell me about iphone 14 pro'
                 }
             ])
         })
@@ -23,7 +23,7 @@ var chatService = {
         })
         .then(data => {
             console.log('Success:',  data);
-            $('#chat-window').text(data.text);
+            $('#chat-window').html(data.text);
         })
         .catch(error => console.error('Error:', error));
     }
