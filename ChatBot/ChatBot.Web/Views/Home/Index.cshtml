@@ -2,12 +2,42 @@
     ViewData["Title"] = "Home Page";
 }
 
+<div class="row">
+    <div class="col-lg-4 col-md-4 col-sm-12">
+        <div class="card">
+            <div class="card-body chat-history">
+                <div class="card-header">
+                    <h5>Chat History</h5>
+                    <button id="new-chat" onclick="chatService.startChat()" type="button" class="btn btn-outline-dark">Start New</button>
+                </div>
+                <ul id="chat-history-container" class="list-group list-group-flush">
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-8 col-md-8 col-sm-12">
+        <div class="card">
+            <div class="card-body">
+                <div class="card-header">
+                    <h5>Chat Window</h5>
+                </div>
+                <div class="card">
+                    <div id="chat-window" class="card-body chat-container">
+                        
+                    </div>
+                    <div class="card-body">
+                        <label id="thinking-lbl" class="label-think"></label>
+                        <textarea id="chat-box" class="form-control mt-2" rows="3" placeholder="Message Chatbot"></textarea>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 
-
-@* <div class="text-center"> *@
-@*     <h1 class="display-4">Welcome</h1> *@
-@*     <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p> *@
-@*     <p id="chat-window"></p> *@
-@*      *@
-@*     <button onclick="chatService.init()">Start Chat</button> *@
-@* </div> *@
+<script type="text/javascript">
+    $(document).ready(function (){
+        chatService.init();
+    });
+</script>

@@ -29,3 +29,32 @@ body {
 .form-floating > .form-control-plaintext:focus::placeholder, .form-floating > .form-control:focus::placeholder {
   text-align: start;
 }
+
+.chat-container {
+  height: 400px;
+  overflow-y: scroll;
+}
+
+.chat-history{
+  height: 610px;
+}
+
+.chat-item-container-user{
+  background-color: #f4f2f2;
+  padding: 10px;
+  border-radius: 10px;
+  margin-bottom: 10px;
+}
+
+.chat-item-container-ai{
+  background-color: #e9e7e7;
+  padding: 10px;
+  border-radius: 10px;
+  margin-bottom: 10px;
+}
+
+.label-think{
+  font-style: italic;
+  font-size: 13px;
+  color: grey;
+}
