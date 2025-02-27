@@ -1,8 +1,4 @@
-﻿@{
-    ViewData["Title"] = "Home Page";
-}
-
-<div class="row">
+﻿<div class="row">
     <div class="col-lg-4 col-md-4 col-sm-12">
         <div class="card">
             <div class="card-body chat-history">
@@ -12,7 +8,7 @@
                             <h5>Chat History</h5>
                         </div>
                         <div class="col-lg-4 col-md-4 col-sm-12">
-                            <button id="new-chat" onclick="chatService.startChat()" type="button" class="btn btn-outline-dark">Start New</button>
+                            <button id="new-chat" onclick="chatService.startNewChat()" type="button" class="btn btn-outline-dark">Start New</button>
                         </div>
                     </div>
                 </div>

@@ -58,3 +58,8 @@ body {
   font-size: 13px;
   color: grey;
 }
+
+.chat-history-item:hover{
+  background-color: #f2f5f2;
+  cursor: pointer;
+}
