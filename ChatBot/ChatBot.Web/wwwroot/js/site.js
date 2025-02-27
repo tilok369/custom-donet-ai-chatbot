@@ -5,6 +5,7 @@
 
 let chatService = {
     interval: null,
+    chatHistory: [],
     init: function () {
         $('#chat-box').keypress(function (event) {
             if (event.keyCode === 13) {
@@ -26,17 +27,18 @@ let chatService = {
         
         chatService.startThinking();
         
+        chatService.chatHistory.push({
+            role: 1,
+            text: chatText,
+            originalText: chatText
+        });
+        
         fetch('api/chat', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify([
-                {
-                    role: 1,
-                    text: chatText
-                }
-            ])
+            body: JSON.stringify(chatService.chatHistory)
         })
             .then(response => {
                 console.log('Raw response:', response);
@@ -50,8 +52,13 @@ let chatService = {
                 //                         </div>
                 //                     </div>`);
                 // $('#chat-window').scrollTop($('#chat-window')[0].scrollHeight);
+                chatService.chatHistory.push({
+                    role: 2,
+                    text: data.text,
+                    originalText: data.originalText
+                })
                 chatService.stopThinking();
-                chatService.showChat(data.text);
+                chatService.showChat(chatService.chatHistory.length, data.text);
             })
             .catch(error => console.error('Error:', error));
     },
@@ -77,24 +84,24 @@ let chatService = {
         }
     },
     
-    showChat: function (text) {
+    showChat: function (index, text) {
         $('#chat-window').append(`<div class="row justify-content-end">
-                                        <div id="item-1" class="col-lg-8 col-md-8 col-sm-11 chat-item-container-ai">
+                                        <div id="item-${index}" class="col-lg-8 col-md-8 col-sm-11 chat-item-container-ai">
                                         </div>
                                     </div>`);
         
         let words = text.split(' ');
         let showLength = 1;
-        let i =setInterval(function () {
+        let interval =setInterval(function () {
             let text='';
             for(let i = 0; i < showLength; i++) {
                 text += words[i] + ' ';
             }
-            $('#item-1').html('');
-            $('#item-1').append(`${text}`);
+            $(`#item-${index}`).html('');
+            $(`#item-${index}`).append(`${text}`);
             showLength++;
-            if(showLength === words.length + 2) {
-                clearInterval(i);
+            if(showLength === words.length + 1) {
+                clearInterval(interval);
             }
             if(showLength % 2 === 0) {
                 $('#chat-window').scrollTop($('#chat-window')[0].scrollHeight);

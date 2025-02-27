@@ -14,7 +14,7 @@ public class CustomChatService(IServiceProvider serviceProvider) : ICustomChatSe
     public async Task<CustomChatResponse> ChatAsync(List<CustomChatResponse> messages)
     {
         var chatResponses = messages
-            .Select(c => new ChatMessage(ToChatRole(c.Role), c.Text)).ToList();
+            .Select(c => new ChatMessage(ToChatRole(c.Role), c.OriginalText)).ToList();
 
         var chatResponseText = string.Empty;
         await foreach (var message in _chatClient.GetStreamingResponseAsync(chatResponses))
@@ -22,7 +22,7 @@ public class CustomChatService(IServiceProvider serviceProvider) : ICustomChatSe
             chatResponseText += message.Text;
         }
 
-        return new CustomChatResponse(2, ToHtml(chatResponseText));
+        return new CustomChatResponse(2, ToHtml(chatResponseText), chatResponseText);
     }   
     
     private ChatRole ToChatRole(int role) 
