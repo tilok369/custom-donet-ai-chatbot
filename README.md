@@ -18,4 +18,4 @@ I am using ***deepseek-r1:1.5b***. To download and run the model open command pr
 ollama run deepseek-r1:1.5b
 ```
 
-![My Image](/Users/tanjeerhaque/Desktop/chatbot.png )
+![My Image](./Users/tanjeerhaque/Desktop/chatbot.png )
