@@ -18,4 +18,10 @@ I am using ***deepseek-r1:1.5b***. To download and run the model open command pr
 ollama run deepseek-r1:1.5b
 ```
 
+## NuGet packages used
+- Microsoft.Extensions.AI
+- Microsoft.Extensions.AI.Ollama
+
+# UI Look
+
 ![Chatbot UI](https://github.com/tilok369/custom-donet-ai-chatbot/blob/main/chatbot-ui.png)
