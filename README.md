@@ -28,3 +28,5 @@ ollama run deepseek-r1:1.5b
 
 # Give it a STAR :star:
 Love this one or add any value to you? Show your support by giving this project a star!
+
+[![GitHub stars](https://img.shields.io/github/stars/tilok369/custom-donet-ai-chatbot.svg?style=social&label=Star)](https://github.com/tilok369/custom-donet-ai-chatbot)
